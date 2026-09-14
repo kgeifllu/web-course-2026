@@ -1,0 +1,117 @@
+/* Глобальный box-sizing — обязательное требование задания */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* ШАПКА: flex-контейнер, элементы в колонку, по центру */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background-color: #2b2d42;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* НАВИГАЦИЯ: элементы в строку, с равномерным распределением и переносом на маленьких экранах */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #edf2f4;
+  padding: 12px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #2b2d42;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #ef233c;
+}
+
+/* Общий отступ для секций внутри main */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* Блок "О себе": фото и текст рядом через flex */
+#about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#about img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+/* НАВЫКИ: "пилюли" через flex-раскладку контейнера */
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background-color: #8d99ae;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+/* КОНТАКТЫ: ссылки в строку с ховер-эффектом */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background-color: #2b2d42;
+  color: #fff;
+  padding: 30px 20px;
+}
+
+footer a {
+  color: #edf2f4;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+footer a:hover {
+  color: #ef233c;
+  border-bottom-color: #ef233c;
+}
