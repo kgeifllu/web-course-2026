@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MoodFlix — фильм под твоё настроение</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <header class="site-header">
-    <div class="logo">MoodFlix</div>
+    <div class="logo"><span class="logo-dot"></span> MoodFlix</div>
 
     <button class="burger" aria-label="Открыть меню">
       <span></span>
@@ -20,64 +22,131 @@
     <nav class="main-nav">
       <a href="#hero">Главная</a>
       <a href="#moods">Настроения</a>
-      <a href="#subscribe">Подписка</a>
       <a href="#about">О сервисе</a>
+      <a href="#subscribe" class="btn btn-primary nav-cta">Подписаться</a>
     </nav>
   </header>
 
   <main>
 
     <section id="hero" class="hero">
-      <h1>Не знаешь, что посмотреть?</h1>
-      <p>Опиши, что чувствуешь — мы подберём фильм за 10 секунд.</p>
-      <a href="#moods" class="btn-primary">Подобрать фильм</a>
+      <div class="hero-badge">🎬 Новая подборка каждую пятницу</div>
+      <h1 class="hero-title">НЕ ЗНАЕШЬ, ЧТО ПОСМОТРЕТЬ?<br><span class="accent">МЫ ЗНАЕМ.</span></h1>
+
+      <div class="hero-grid">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=900&q=80" alt="Зрительный зал кинотеатра">
+        <div class="hero-panel">
+          <h2>ДЛЯ ТЕХ, КТО ЧУВСТВУЕТ</h2>
+          <p>Опиши своё настроение — не жанр, не рейтинг, а именно чувство. Мы подберём фильм, который подходит именно сейчас. Работает лучше, чем спрашивать у друзей в чате.</p>
+          <a href="#moods" class="btn btn-primary">Подобрать фильм</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?w=700&q=80" alt="Нейросеть подбирает фильм">
+        <h3>ИИ, КОТОРЫЙ ЧУВСТВУЕТ</h3>
+        <p>Алгоритм анализирует настроение, а не только жанр — это как психолог, только советует фильмы, а не задаёт вопрос «а как вы себя чувствуете».</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=700&q=80" alt="Библиотека фильмов">
+        <h3>10 000+ ФИЛЬМОВ</h3>
+        <p>От артхауса до попкорновых блокбастеров. Если фильм существует — он, скорее всего, уже у нас в базе (и мы его не заспойлерили).</p>
+      </div>
     </section>
 
     <section id="moods" class="moods">
-      <h2>Выбери своё настроение</h2>
+      <h2>ВЫБЕРИ СВОЁ НАСТРОЕНИЕ</h2>
       <div class="mood-grid">
 
         <div class="mood-card">
           <div class="mood-icon">😢</div>
           <h3>Хочу поплакать</h3>
-          <p>Драмы, которые трогают до слёз.</p>
+          <div class="mood-tags">
+            <p>Драма · Мелодрама</p>
+            <p>Салфетки в комплекте</p>
+          </div>
+          <p class="mood-desc">Фильмы, после которых честно спрашиваешь себя: «а зачем я это включила».</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
         <div class="mood-card">
           <div class="mood-icon">🍿</div>
           <h3>Хочу выключить мозг</h3>
-          <p>Лёгкие комедии и боевики без напряга.</p>
+          <div class="mood-tags">
+            <p>Комедия · Боевик</p>
+            <p>0% интеллектуальных усилий</p>
+          </div>
+          <p class="mood-desc">Не думать вообще — законное право каждого после понедельника.</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
         <div class="mood-card">
           <div class="mood-icon">✨</div>
           <h3>Хочу вдохновиться</h3>
-          <p>Истории о людях, которые изменили мир.</p>
+          <div class="mood-tags">
+            <p>Байопик · Спорт</p>
+            <p>Мотивация на месяц вперёд</p>
+          </div>
+          <p class="mood-desc">Истории о людях, которые добились всего — почти как ты завтра.</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
         <div class="mood-card">
           <div class="mood-icon">🗺️</div>
           <h3>Хочу приключений</h3>
-          <p>Путешествия, экшн, неизведанные земли.</p>
+          <div class="mood-tags">
+            <p>Экшн · Фэнтези</p>
+            <p>Диван превращается в самолёт</p>
+          </div>
+          <p class="mood-desc">Путешествия туда, куда не долетит ни один лоукостер.</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
         <div class="mood-card">
           <div class="mood-icon">📼</div>
           <h3>Хочу поностальгировать</h3>
-          <p>Культовая классика прошлых десятилетий.</p>
+          <div class="mood-tags">
+            <p>Классика · 80–90е</p>
+            <p>VHS-эффект не прилагается</p>
+          </div>
+          <p class="mood-desc">Фильмы, которые смотрели ещё родители — и почему-то тоже заходят.</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
         <div class="mood-card">
           <div class="mood-icon">👻</div>
           <h3>Хочу испугаться</h3>
-          <p>Хорроры и триллеры на грани нервов.</p>
+          <div class="mood-tags">
+            <p>Хоррор · Триллер</p>
+            <p>Свет выключать на свой страх и риск</p>
+          </div>
+          <p class="mood-desc">Гарантированный повод не спать одной ещё пару ночей.</p>
+          <a href="#" class="btn btn-outline">Смотреть подборку</a>
         </div>
 
       </div>
     </section>
 
+    <section id="about" class="community">
+      <div class="community-media">
+        <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80" alt="Человек смотрит фильм дома">
+      </div>
+      <div class="community-content">
+        <h2>ПОЧЕМУ НАМ ДОВЕРЯЮТ <span class="accent">(ну, более-менее)</span></h2>
+        <ul class="perk-list">
+          <li><strong>ИИ-подбор</strong> — без магии, зато с алгоритмом</li>
+          <li><strong>Никаких спойлеров</strong> — мамой клянёмся</li>
+          <li><strong>Обновление каждую пятницу</strong> — ровно как зарплата, только чаще</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="subscribe" class="subscribe">
-      <h2>Подпишись на еженедельную подборку</h2>
+      <h2>ПРИСОЕДИНЯЙСЯ К ПЛЕМЕНИ КИНОМАНОВ</h2>
+      <p class="subscribe-lead">Раз в неделю — подборка под твоё настроение. Без спама, без спойлеров, максимум с одной плохой шуткой в письме.</p>
+
       <form class="subscribe-form">
         <label for="name">Имя</label>
         <input type="text" id="name" name="name" placeholder="Как к тебе обращаться?">
@@ -85,18 +154,41 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="you@example.com">
 
-        <label for="message">Какое настроение ищешь чаще всего?</label>
-        <textarea id="message" name="message" placeholder="Расскажи немного о себе"></textarea>
+        <label for="message">Сообщение</label>
+        <textarea id="message" name="message" placeholder="Какое настроение ищешь чаще всего?"></textarea>
 
-        <button type="submit" class="btn-primary">Подписаться</button>
+        <button type="submit" class="btn btn-primary">Подписаться</button>
       </form>
     </section>
 
   </main>
 
-  <footer id="about" class="site-footer">
-    <p>MoodFlix © 2026</p>
-    <p>Сервис подбора фильмов по настроению</p>
+  <footer class="site-footer">
+    <div class="footer-logo"><span class="logo-dot"></span> MoodFlix</div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <p>Email: hello@moodflix.example</p>
+        <p>Телефон: только по будням, у нас тоже настроение</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Когда выходят подборки</h4>
+        <p>Пн–Пт: каждый день по чуть-чуть</p>
+        <p>Выходные: полный сеанс с попкорном</p>
+        <p>Полнолуние: хоррор-спецвыпуск 🌕</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Мы в сети</h4>
+        <p><a href="#">Instagram</a></p>
+        <p><a href="#">Telegram</a></p>
+        <p><a href="#">Плейлист для просмотра</a></p>
+      </div>
+    </div>
+
+    <p class="footer-easter-egg">Если ты дочитала до сюда — у тебя точно есть время посмотреть один фильм.</p>
   </footer>
 
 </body>
