@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoodFlix — фильм под твоё настроение</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">MoodFlix</div>
+
+    <button class="burger" aria-label="Открыть меню">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav">
+      <a href="#hero">Главная</a>
+      <a href="#moods">Настроения</a>
+      <a href="#subscribe">Подписка</a>
+      <a href="#about">О сервисе</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="hero" class="hero">
+      <h1>Не знаешь, что посмотреть?</h1>
+      <p>Опиши, что чувствуешь — мы подберём фильм за 10 секунд.</p>
+      <a href="#moods" class="btn-primary">Подобрать фильм</a>
+    </section>
+
+    <section id="moods" class="moods">
+      <h2>Выбери своё настроение</h2>
+      <div class="mood-grid">
+
+        <div class="mood-card">
+          <div class="mood-icon">😢</div>
+          <h3>Хочу поплакать</h3>
+          <p>Драмы, которые трогают до слёз.</p>
+        </div>
+
+        <div class="mood-card">
+          <div class="mood-icon">🍿</div>
+          <h3>Хочу выключить мозг</h3>
+          <p>Лёгкие комедии и боевики без напряга.</p>
+        </div>
+
+        <div class="mood-card">
+          <div class="mood-icon">✨</div>
+          <h3>Хочу вдохновиться</h3>
+          <p>Истории о людях, которые изменили мир.</p>
+        </div>
+
+        <div class="mood-card">
+          <div class="mood-icon">🗺️</div>
+          <h3>Хочу приключений</h3>
+          <p>Путешествия, экшн, неизведанные земли.</p>
+        </div>
+
+        <div class="mood-card">
+          <div class="mood-icon">📼</div>
+          <h3>Хочу поностальгировать</h3>
+          <p>Культовая классика прошлых десятилетий.</p>
+        </div>
+
+        <div class="mood-card">
+          <div class="mood-icon">👻</div>
+          <h3>Хочу испугаться</h3>
+          <p>Хорроры и триллеры на грани нервов.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="subscribe" class="subscribe">
+      <h2>Подпишись на еженедельную подборку</h2>
+      <form class="subscribe-form">
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" placeholder="Как к тебе обращаться?">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com">
+
+        <label for="message">Какое настроение ищешь чаще всего?</label>
+        <textarea id="message" name="message" placeholder="Расскажи немного о себе"></textarea>
+
+        <button type="submit" class="btn-primary">Подписаться</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer id="about" class="site-footer">
+    <p>MoodFlix © 2026</p>
+    <p>Сервис подбора фильмов по настроению</p>
+  </footer>
+
+</body>
+</html>
