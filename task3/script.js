@@ -91,6 +91,14 @@ function render() {
   // Очищаем список и заполняем заново на основе отфильтрованных задач
   taskList.innerHTML = '';
   const filtered = getFilteredTasks();
+  
+  if (filtered.length === 0) {
+    const emptyMsg = document.createElement('p');
+    emptyMsg.className = 'empty-list';
+    emptyMsg.textContent = 'Задач нет — самое время отдохнуть.';
+    taskList.appendChild(emptyMsg);
+  }
+  
   filtered.forEach(task => {
     taskList.appendChild(createTaskElement(task));
   });
