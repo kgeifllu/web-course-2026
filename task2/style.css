@@ -298,6 +298,12 @@ a {
   align-items: flex-start;
 }
 
+.dossier-source {
+  font-size: 0.85rem;
+  color: #9a8fd6;
+  text-decoration: underline;
+}
+
 .dossier-back {
   font-size: 0.85rem;
   color: var(--color-accent);
