@@ -1,131 +1,37 @@
-* {
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo-list</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f4f8;
-  color: #222;
-}
+  <main class="app">
+    <h1>Мои задачи</h1>
 
-.app {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 24px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
+    <div class="input-row">
+      <input type="text" id="task-input" placeholder="Что нужно сделать?">
+      <button id="add-btn">Добавить</button>
+    </div>
 
-h1 {
-  margin-top: 0;
-  text-align: center;
-}
+    <p id="empty-warning" class="warning hidden">Введи текст задачи, прежде чем добавлять.</p>
 
-.input-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
+    <div class="counters">
+      <span>Осталось: <strong id="count-active">0</strong></span>
+      <span>Выполнено: <strong id="count-completed">0</strong></span>
+    </div>
 
-.input-row input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-}
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="active">Активные</button>
+      <button class="filter-btn" data-filter="completed">Завершённые</button>
+    </div>
 
-.input-row button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 6px;
-  background: #4a4ae0;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-}
+    <ul id="task-list"></ul>
+  </main>
 
-.input-row button:hover {
-  background: #3838c0;
-}
-
-.warning {
-  color: #d33;
-  font-size: 0.85rem;
-  margin: 4px 0 12px;
-}
-
-.warning.hidden {
-  display: none;
-}
-
-.counters {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  color: #555;
-  margin-bottom: 16px;
-}
-
-.filters {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.filter-btn {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.filter-btn.active {
-  background: #4a4ae0;
-  color: #fff;
-  border-color: #4a4ae0;
-}
-
-#task-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.task-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-}
-
-.task-item .task-text {
-  flex: 1;
-}
-
-.task-item.completed .task-text {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-.task-item .delete-btn {
-  border: none;
-  background: #f0f0f0;
-  color: #a00;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-
-.task-item .delete-btn:hover {
-  background: #f0d0d0;
-}
+  <script src="script.js" defer></script>
+</body>
+</html>
