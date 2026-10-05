@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #1b1b2f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  max-width: 420px;
+  width: 100%;
+  margin: 40px 16px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 16px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.status button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: #4a4ae0;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.status button:hover {
+  background: #3838c0;
+}
+
+.status button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.message {
+  min-height: 24px;
+  font-weight: bold;
+  color: #ffd166;
+  margin-bottom: 16px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  aspect-ratio: 1 / 1;
+}
+
+.pad {
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.pad:hover {
+  opacity: 0.8;
+}
+
+.pad.active {
+  opacity: 1;
+  transform: scale(0.96);
+}
+
+.pad:disabled {
+  cursor: not-allowed;
+}
+
+#pad-0 {
+  background: #e63946;
+  border-top-left-radius: 50%;
+}
+
+#pad-1 {
+  background: #2ec4b6;
+  border-top-right-radius: 50%;
+}
+
+#pad-2 {
+  background: #ffd166;
+  border-bottom-left-radius: 50%;
+}
+
+#pad-3 {
+  background: #4a4ae0;
+  border-bottom-right-radius: 50%;
+}
