@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f8;
+  color: #222;
+}
+
+.page-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: #1b1b2f;
+  color: #fff;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+}
+
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 16px;
+}
+
+.lab-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lab-card h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.lab-card p {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.lab-links {
+  display: flex;
+  gap: 12px;
+}
+
+.lab-links a {
+  text-decoration: none;
+  color: #4a4ae0;
+  font-weight: bold;
+}
+
+.lab-links a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .lab-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .lab-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
