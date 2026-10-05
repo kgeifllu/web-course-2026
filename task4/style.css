@@ -130,6 +130,17 @@ h1 {
   font-size: 0.95rem;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+.app {
+  width: 100%;
+}
+
+.input-row {
+  flex-wrap: wrap;
+}
 .history-item .guess {
   font-weight: bold;
   letter-spacing: 2px;
