@@ -24,7 +24,7 @@ function addTask() {
 
   emptyWarning.classList.add('hidden');
 
-  tasks.push({
+  tasks.unshift({
     id: nextId,
     text: text,
     completed: false
