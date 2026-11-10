@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Змейка</title>
+  <!-- Подключаем стили страницы -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Скрипт с атрибутом defer: загружается параллельно и выполняется
+       после того, как весь HTML разобран, поэтому элементы уже доступны -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <main class="app">
+    <h1>Змейка</h1>
+
+    <!-- Обёртка: игровое поле и боковая панель со счётом стоят рядом -->
+    <div class="game">
+
+      <!-- Обёртка поля нужна, чтобы поверх canvas показать окно «Игра окончена» -->
+      <div class="board">
+        <!-- Игровое поле: 400×400 пикселей = 20×20 клеток по 20px -->
+        <canvas id="game-canvas" width="400" height="400"></canvas>
+
+        <!-- Окно конца игры. Атрибут hidden скрывает его, пока игра идёт -->
+        <div id="game-over" class="game-over" hidden>
+          <p class="game-over__title">Игра окончена</p>
+          <p class="game-over__score">Ваш счёт: <strong id="final-score">0</strong></p>
+          <button id="restart-btn" class="btn" type="button">Начать заново</button>
+        </div>
+      </div>
+
+      <!-- Боковая панель: текущий счёт (обычный HTML-элемент, не рисуется на canvas) -->
+      <aside class="panel">
+        <p class="panel__label">Счёт</p>
+        <p id="score" class="panel__score">0</p>
+        <p class="panel__hint">Управление — стрелки на клавиатуре</p>
+      </aside>
+
+    </div>
+  </main>
+
+</body>
+</html>
