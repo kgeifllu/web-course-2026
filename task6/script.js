@@ -27,6 +27,9 @@ const DIRECTIONS = {
 const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');           // 2D-контекст — через него рисуем
 const scoreEl = document.getElementById('score');
+const gameOverEl = document.getElementById('game-over');     // окно «Игра окончена»
+const finalScoreEl = document.getElementById('final-score'); // итоговый счёт в окне
+const restartBtn = document.getElementById('restart-btn');   // кнопка «Начать заново»
 
 /* =====================================================================
    3. СОСТОЯНИЕ ИГРЫ
@@ -211,9 +214,11 @@ function gameLoop(timestamp) {
 
   draw();
 
-  // Если игра закончилась — больше не просим новый кадр, цикл останавливается
+  // Если игра закончилась — больше не просим новый кадр, цикл останавливается,
+  // и показываем окно с итоговым счётом
   if (state.gameOver) {
     animationId = null;
+    showGameOver();
     return;
   }
 
@@ -221,15 +226,45 @@ function gameLoop(timestamp) {
   animationId = requestAnimationFrame(gameLoop);
 }
 
-// startGame() — сбрасывает состояние и запускает цикл
+// startGame() — сбрасывает состояние и запускает цикл.
+// Используется и для первого запуска, и для рестарта.
 function startGame() {
+  // Защита от двух циклов одновременно: если предыдущий цикл ещё
+  // запланирован (animationId не null), отменяем его перед запуском нового.
+  // Без этого каждый рестарт добавлял бы ещё один gameLoop, и змейка
+  // ускорялась бы (update вызывался бы из нескольких циклов).
+  if (animationId !== null) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+
   resetGame();
+  hideGameOver();
   draw();
   animationId = requestAnimationFrame(gameLoop);
 }
 
 /* =====================================================================
-   8. УПРАВЛЕНИЕ С КЛАВИАТУРЫ
+   8. ОКНО «ИГРА ОКОНЧЕНА» И РЕСТАРТ
+   ===================================================================== */
+
+// showGameOver() — показывает окно и записывает в него итоговый счёт
+function showGameOver() {
+  finalScoreEl.textContent = state.score;
+  gameOverEl.hidden = false;
+  restartBtn.focus(); // фокус на кнопку — можно перезапустить клавишей Enter
+}
+
+// hideGameOver() — прячет окно при новой игре
+function hideGameOver() {
+  gameOverEl.hidden = true;
+}
+
+// Кнопка «Начать заново» запускает новую игру без перезагрузки страницы
+restartBtn.addEventListener('click', startGame);
+
+/* =====================================================================
+   9. УПРАВЛЕНИЕ С КЛАВИАТУРЫ
    ===================================================================== */
 
 document.addEventListener('keydown', (event) => {
@@ -258,7 +293,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 /* =====================================================================
-   9. ЗАПУСК
+   10. ЗАПУСК
    ===================================================================== */
 
 startGame();
