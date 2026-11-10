@@ -1,0 +1,171 @@
+/* ===== Общие настройки ===== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f2f4f7;
+  color: #1f2933;
+  line-height: 1.5;
+}
+
+/* Контейнер ограничивает ширину ленты и центрирует её */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Скрытый визуально, но доступный для скринридеров текст (подпись к полю поиска) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Атрибут hidden всегда скрывает элемент, даже если у класса задан display */
+[hidden] {
+  display: none !important;
+}
+
+/* ===== Шапка с поиском ===== */
+
+/* position: sticky — шапка остаётся вверху при прокрутке ленты */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #ffffff;
+  border-bottom: 1px solid #dde2e8;
+  padding: 16px 0 8px;
+}
+
+.header__title {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.search__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #c5ccd5;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Подсветка поля при фокусе */
+.search__input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.counter {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #6b7785;
+}
+
+/* ===== Лента и карточки ===== */
+
+/* Карточки идут столбиком с промежутком 16px */
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0 8px;
+}
+
+.post {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Строка с номером поста и автором */
+.post__meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 6px;
+  font-size: 13px;
+  color: #6b7785;
+}
+
+.post__title {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+/* Первая буква заголовка заглавная (в API все заголовки с маленькой) */
+.post__title::first-letter {
+  text-transform: uppercase;
+}
+
+.post__body {
+  margin: 0;
+  color: #3e4c59;
+  /* В текстах API есть переносы строк \n — сохраняем их */
+  white-space: pre-line;
+}
+
+/* ===== Служебные сообщения ===== */
+
+.message {
+  margin: 16px 0;
+  text-align: center;
+  color: #6b7785;
+}
+
+/* Индикатор загрузки — с анимированной пульсацией */
+.loader {
+  font-weight: 600;
+  color: #3b82f6;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Блок ошибки — красноватый фон */
+.error {
+  margin: 16px 0;
+  padding: 16px;
+  text-align: center;
+  background: #fde8e8;
+  border: 1px solid #f5b5b5;
+  border-radius: 10px;
+}
+
+.error__text {
+  margin: 0 0 12px;
+  color: #b42318;
+}
+
+.btn {
+  padding: 8px 18px;
+  font-size: 15px;
+  color: #ffffff;
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+/* Сторож невидим, но имеет высоту, чтобы IntersectionObserver его «видел» */
+.sentinel {
+  height: 1px;
+}

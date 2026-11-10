@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Лента постов</title>
+  <!-- Подключаем стили -->
+  <link rel="stylesheet" href="style.css">
+  <!-- defer: скрипт выполнится после разбора всего HTML -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Шапка «прилипает» к верху, чтобы поиск был виден при прокрутке -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header__title">Лента постов</h1>
+
+      <!-- Поле поиска по заголовкам уже загруженных постов -->
+      <label class="search">
+        <span class="visually-hidden">Поиск по заголовку</span>
+        <input id="search-input" class="search__input" type="search"
+               placeholder="Поиск по заголовку…" autocomplete="off">
+      </label>
+
+      <!-- Сколько постов показано / загружено -->
+      <p id="counter" class="counter"></p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Сюда JS отрисовывает карточки постов из массива -->
+    <section id="posts" class="posts" aria-live="polite"></section>
+
+    <!-- Сообщение «ничего не найдено» для поиска -->
+    <p id="empty" class="message" hidden>По вашему запросу ничего не найдено</p>
+
+    <!-- Блок ошибки: текст + кнопка повторной попытки -->
+    <div id="error" class="error" role="alert" hidden>
+      <p id="error-text" class="error__text"></p>
+      <button id="retry-btn" class="btn" type="button">Повторить</button>
+    </div>
+
+    <!-- Индикатор загрузки -->
+    <p id="loader" class="message loader" hidden>Загрузка…</p>
+
+    <!-- Конец ленты -->
+    <p id="end" class="message" hidden>Больше постов нет</p>
+
+    <!-- «Сторож» (sentinel): пустой элемент в самом низу ленты.
+         IntersectionObserver следит за ним: как только он появился
+         на экране — пора грузить следующую порцию постов -->
+    <div id="sentinel" class="sentinel"></div>
+
+  </main>
+
+</body>
+</html>
